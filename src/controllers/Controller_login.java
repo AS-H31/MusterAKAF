@@ -9,10 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 
 public class Controller_login {
     public TextField emailField = null;
@@ -30,7 +28,8 @@ public class Controller_login {
             if (eingabe.equals(emailField.getText().trim().toLowerCase())){
                 System.out.println("email vorhanden");
                 // go to main view
-                Parent home_parent = FXMLLoader.load(getClass().getResource("C:\\Users\\shiar\\IdeaProjects\\AkaApp\\src\\resources\\MainView.fxml"));
+                URL url = new File("C:\\\\Users\\\\shiar\\\\IdeaProjects\\\\AkaApp\\\\src\\\\resources\\\\MainView.fxml").toURI().toURL();
+                Parent home_parent = FXMLLoader.load(url);
                 Scene root = new Scene(home_parent);
 
                 // this line gets Stage info
